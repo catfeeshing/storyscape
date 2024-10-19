@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@google/generative-ai": "^0.21.0",
+		"@humeai/voice-react": "^0.1.16",
 		"@nextui-org/button": "2.0.38",
 		"@nextui-org/card": "^2.0.34",
 		"@nextui-org/code": "2.0.33",
