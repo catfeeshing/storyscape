@@ -2,6 +2,10 @@
 import { useState ,useEffect } from 'react';
 import gemini from '@/components/gemini'
 
+declare global {
+    var word: string;
+}
+
 interface Props {
     proompt: string
     instruction: string
@@ -25,6 +29,11 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = ""}) => {
         .then((result) => {
             // console.log(result)
             setText(String(result));
+            // var word: string
+            // first string in result
+            // var word: string
+            // let word = String(result).split(" ")[0]
+            globalThis.word = String(result).split(" ")[0]
         })
         .catch((error) => {
         console.error('Error fetching data:', error)

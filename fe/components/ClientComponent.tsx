@@ -13,7 +13,7 @@ export default function ClientComponent({
     const sessionSettings: any = {
         "type": "session_settings",
         "variables": {
-          "word": "donkey",
+          "word": globalThis.word,
         }
       };
   return (
