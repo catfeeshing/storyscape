@@ -2,8 +2,12 @@
 import { useState ,useEffect } from 'react';
 import gemini from '@/components/gemini'
 
+interface Props {
+    proompt: string
+    instruction: string
+}
 
-const Prompt = () => {
+const Prompt:React.FC<Props> = ({proompt = "", instruction = ""}) => {
 
     const [text, setText] = useState('');
     
@@ -11,7 +15,7 @@ const Prompt = () => {
         const fetchData = () => {
             return new Promise((resolve, reject) => {
               // Simulate a fetch request
-              gemini('cow')
+              gemini(proompt, instruction)
                 .then((response) => response)
                 .then((data) => resolve(data))
                 .catch((error) => reject(error))
@@ -30,7 +34,7 @@ const Prompt = () => {
     }, []); // Empty dependency array ensures this effect runs once when the component mounts
     
   return (
-    <div>
+    <div className="mt-10 text-pretty text-xl">
         {text}
     </div>
   );
