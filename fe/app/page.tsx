@@ -18,7 +18,7 @@ export default function Home() {
       <div className="absolute inset-20 w-1/2 h-300 bg-gradient-to-r from-slate-200 to-white-200 opacity-70 p-40 rounded-3xl">
       <h1 className="text-6xl font-bold text-slate z+5">welcome to storyscape!</h1>
       <br></br>
-      <a href="/levels"><button className="bg-slate-500 text-white p-4 rounded-lg">begin your adventure</button></a>
+      <button className="bg-slate-500 text-white p-4 rounded-lg"><a href="/levels">begin your adventure</a></button>
     </div>
 
     {/* hero image */}
