@@ -3,9 +3,9 @@ import { useState ,useEffect } from 'react';
 import gemini from '@/components/gemini'
 import ClientComponent from './ClientComponent';
 
+
 declare global {
     var word: string;
-    var mode: string;
     var paragraph: string;
 }
 
@@ -13,9 +13,10 @@ interface Props {
     proompt: string
     instruction: string
     token :string
+    mode:string
 }
 
-const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = ""}) => {
+const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = "", mode="easy"}) => {
 
     const [text, setText] = useState('');
     
@@ -55,7 +56,7 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = ""}) =>
     <div className="mt-10 text-pretty text-xl">
         {text}
     </div>
-    {text ? (<ClientComponent accessToken={token}/>) : ("")}
+    {text ? (<ClientComponent accessToken={token} mode="easy" />) : ("")}
     </>
   );
 };
