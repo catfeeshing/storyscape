@@ -23,7 +23,7 @@ const Userdropdown = (data: any) => {
             <p className="font-bold">Signed in as</p>
             <p className="font-bold">{data.name}</p>
           </DropdownItem>
-          <DropdownItem key="dashboard" href="/profile">Profile</DropdownItem>
+          <DropdownItem key="dashboard" href="/levels">Learn</DropdownItem>
           {/* <DropdownItem key="history">History</DropdownItem> */}
           {/* <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem> */}
           <DropdownItem key="settings">Settings</DropdownItem>
