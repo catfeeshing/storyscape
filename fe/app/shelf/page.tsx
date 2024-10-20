@@ -51,7 +51,7 @@ export default function InfoPage() {
     return (
       <div className="container mx-auto p-3">
         <h2 className="text-4xl font-bold text-center text-slate-600 mb-8">Your Shelf</h2>
-        <div className="overflow-y-auto max-h-120">
+        <div className="overflow-y-auto max-h-96">
           <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
             <thead className="bg-pink-200 text-slate">
               <tr>
