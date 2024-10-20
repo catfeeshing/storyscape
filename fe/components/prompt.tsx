@@ -2,6 +2,8 @@
 import { useState ,useEffect } from 'react';
 import gemini from '@/components/gemini'
 import ClientComponent from './ClientComponent';
+import { collection, addDoc } from "firebase/firestore";
+import { firestore } from '@/firebase/firebase'
 
 
 declare global {
@@ -31,7 +33,7 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = "", mod
             })
           }
         fetchData()
-        .then((result) => {
+        .then(async (result) => {
             // console.log(result)
             setText(String(result));
             

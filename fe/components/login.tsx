@@ -31,11 +31,12 @@ export default function Auth({ red }: { red: string }) {
             await setDoc(doc(firestore, "users", result.user.uid), {
                 username: result.user.displayName,
                 email: result.user.email,
-                products: [],
+                words: [],
                 profile_picture: result.user.photoURL,
             });
         }
     };
+    
     const provider = new GoogleAuthProvider()
     const signInWithGoogle = async () => {
         try {
