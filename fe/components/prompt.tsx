@@ -55,7 +55,7 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = "", mod
     
   return (
     <>
-    <div className="mt-10 text-pretty text-xl">
+    <div className="mt-10 text-pretty text-2xl mb-5">
         {text}
     </div>
     {text ? (<ClientComponent accessToken={token} mode="easy" />) : ("")}

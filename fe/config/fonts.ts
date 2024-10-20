@@ -12,5 +12,6 @@ export const fontMono = FontMono({
 
 export const kalam = Kalam({
   subsets: ["latin"],
-  weight: "300"
+  weight: "300",
+  variable: "--font-kalam"
 });

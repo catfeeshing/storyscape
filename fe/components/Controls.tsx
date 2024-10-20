@@ -1,25 +1,25 @@
 // ./components/Controls.tsx
 "use client";
 import { useVoice, VoiceReadyState } from "@humeai/voice-react";
-import { button } from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
 export default function Controls() {
   const { connect, disconnect, readyState } = useVoice();
 
   if (readyState === VoiceReadyState.OPEN) {
     return (
-      <button
-        onClick={() => {
+      <Button className="font-sans font-extrabold"
+        onPress={() => {
           disconnect();
         }}
       >
         End Session
-      </button>
+      </Button>
     );
   }
 
   return (
-    <button
-      onClick={() => {
+    <Button className="font-sans font-extrabold bg-gradient-to-tr from-pink-600 to-red-300 text-white shadow-lg"
+      onPress={() => {
         connect()
           .then(() => {
             /* handle success */
@@ -30,6 +30,6 @@ export default function Controls() {
       }}
     >
       Start Session
-    </button>
+    </Button>
   );
 }
