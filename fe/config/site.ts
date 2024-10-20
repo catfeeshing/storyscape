@@ -5,18 +5,14 @@ export const siteConfig = {
   description: "a website that helps kids learn how to read",
   navItems: [
     {
-      label: "levels",
+      label: "Learn",
       href: "/levels",
     },
-    {
-      label: "login",
-      href: "/login",
-    }
 
   ],
   navMenuItems: [
     {
-      label: "levels",
+      label: "Learn",
       href: "/levels",
     },
     {

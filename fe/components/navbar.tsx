@@ -14,7 +14,7 @@ import { Input } from "@nextui-org/input";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-
+import User from './user'
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
@@ -25,27 +25,19 @@ import {
   SearchIcon,
   Logo,
 } from "@/components/icons";
+import dynamic from "next/dynamic";
+import { useAuthState } from "react-firebase-hooks/auth";
+const Auth = dynamic(() => import("./login"), {
+    ssr: false,
+});
+
 
 export const Navbar = () => {
   const searchInput = (
-    <Input
-      aria-label="Search"
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className="hidden lg:inline-block" keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement="outside"
-      placeholder="Search..."
-      startContent={
-        <SearchIcon className="text-base text-default-400 pointer-events-none flex-shrink-0" />
-      }
-      type="search"
-    />
+    <>
+    {/* <User></User> */}
+    <Auth red="/profile"/>
+    </>
   );
 
   return (
@@ -53,7 +45,7 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo />
+            <Logo className="hidden" />
             <p className="font-bold text-inherit">STORYSCAPE</p>
           </NextLink>
         </NavbarBrand>
@@ -89,7 +81,7 @@ export const Navbar = () => {
           {/* --------------------------------------------- mobile ui */}
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         <Link isExternal aria-label="profile picture" href={"/"}>
-          <GithubIcon className="text-default-500" />
+          <GithubIcon className="hidden text-default-500" />
         </Link>
         <ThemeSwitch />
         <NavbarMenuToggle />
