@@ -29,7 +29,6 @@ export default async function BlogPage() {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-red-300 to-white z-0"/>
 
-     
     </div>
   );
 }
