@@ -2,8 +2,10 @@
 import { useState ,useEffect } from 'react';
 import gemini from '@/components/gemini'
 import ClientComponent from './ClientComponent';
-import { collection, doc, updateDoc, arrayUnion, addDoc } from "firebase/firestore";
+import { collection, getDoc, doc, updateDoc, arrayUnion, addDoc } from "firebase/firestore";
 import { firestore } from '@/firebase/firebase'
+import { getAuth } from 'firebase/auth'
+
 
 
 declare global {
@@ -35,15 +37,29 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = "", mod
         fetchData()
         .then(async (result) => {
             // console.log(result)
-            setText(String(result));
+            // setText(String(result));
             
             const allText = String(result).split("\n")
             console.log(allText)
 
             globalThis.word = String(result).split("\n")[0]
 
+            const auth = getAuth();
+            let userID = auth.currentUser?.uid
+
+            if (userID) {
+                const userRef = doc(firestore, "users", userID);
+                await updateDoc(userRef, {
+                    words: arrayUnion(globalThis.word)
+                });
+            } else {
+                console.error('User ID is undefined');
+            }
+
             globalThis.paragraph = String(result).split("\n")[2]
             console.log(globalThis.paragraph)
+
+            setText(String(result));
 
         })
         .catch((error) => {

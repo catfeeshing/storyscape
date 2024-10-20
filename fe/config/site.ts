@@ -8,6 +8,10 @@ export const siteConfig = {
       label: "Learn",
       href: "/levels",
     },
+    {
+      label: "My Shelf",
+      href: "/review",
+    },
 
   ],
   navMenuItems: [
@@ -18,7 +22,11 @@ export const siteConfig = {
     {
       label: "login",
       href: "/login",
-    }
+    },
+    {
+      label: "My Shelf",
+      href: "/review",
+    },
 
   ],
   links: {
