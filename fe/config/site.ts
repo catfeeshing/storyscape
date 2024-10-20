@@ -8,6 +8,10 @@ export const siteConfig = {
       label: "levels",
       href: "/levels",
     },
+    {
+      label: "login",
+      href: "/login",
+    }
 
   ],
   navMenuItems: [
@@ -15,6 +19,10 @@ export const siteConfig = {
       label: "levels",
       href: "/levels",
     },
+    {
+      label: "login",
+      href: "/login",
+    }
 
   ],
   links: {
