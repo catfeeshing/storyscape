@@ -10,6 +10,7 @@ export default function Messages({colors}:{colors:String[]}) {
   function endcall() {
     if(readyState === VoiceReadyState.OPEN && x==1) {
         disconnect();
+        
     }
     
   }
@@ -43,6 +44,7 @@ export default function Messages({colors}:{colors:String[]}) {
       if(msg.type === "user_message" || msg.type === "assistant_message"){
       if (msg.message.content && (msg.message.content.includes("Good job") || msg.message.content.includes("good job"))) {
         endcall();
+        window.location.reload();
       }
       if(msg.type === "assistant_message"){
       return (
