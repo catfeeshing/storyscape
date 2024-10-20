@@ -17,10 +17,11 @@ const modeDict: Dictionary = {
 
 
 export default function ClientComponent({
-  accessToken, mode
+  accessToken, mode, colors
 }: {
   accessToken: string,
-  mode: string
+  mode: string,
+  colors: string[],
 }) {
     const configId = process.env['NEXT_PUBLIC_HUME_CONFIG_ID'];
     let difficulty = modeDict[mode]
@@ -34,8 +35,8 @@ export default function ClientComponent({
       };
   return (
     <VoiceProvider auth={{ type: "accessToken", value: accessToken }} configId={configId} sessionSettings = {sessionSettings}>
-      <Messages />
-      <Controls />
+      <Messages colors={colors}/>
+      <Controls colors={colors}/>
     </VoiceProvider>
   );
 }
