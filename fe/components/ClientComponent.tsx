@@ -16,6 +16,8 @@ export default function ClientComponent({
         "type": "session_settings",
         "variables": {
           "word": globalThis.word,
+          "mode": globalThis.mode,
+          "paragraph": globalThis.paragraph,
         }
       };
   return (

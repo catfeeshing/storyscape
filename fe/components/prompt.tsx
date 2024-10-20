@@ -5,6 +5,8 @@ import ClientComponent from './ClientComponent';
 
 declare global {
     var word: string;
+    var mode: string;
+    var paragraph: string;
 }
 
 interface Props {
@@ -31,11 +33,15 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = ""}) =>
         .then((result) => {
             // console.log(result)
             setText(String(result));
-            // var word: string
-            // first string in result
-            // var word: string
-            // let word = String(result).split(" ")[0]
+            
+            const allText = String(result).split("\n")
+            console.log(allText)
+
             globalThis.word = String(result).split("\n")[0]
+
+            globalThis.paragraph = String(result).split("\n")[2]
+            console.log(globalThis.paragraph)
+
         })
         .catch((error) => {
         console.error('Error fetching data:', error)

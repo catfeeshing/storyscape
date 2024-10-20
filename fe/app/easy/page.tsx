@@ -4,6 +4,7 @@ import { fetchAccessToken } from "hume";
 
 
 export default async function AboutPage() {
+  globalThis.mode = "easy"
   const accessToken = await fetchAccessToken({
 
     apiKey: String(process.env.HUME_API_KEY),
