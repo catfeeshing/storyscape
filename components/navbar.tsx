@@ -36,7 +36,7 @@ export const Navbar = () => {
   const searchInput = (
     <>
     {/* <User></User> */}
-    <Auth red="/profile"/>
+    <Auth red="/levels"/>
     </>
   );
 
