@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, firestore } from "@/firebase/firebase"; // Adjust the import path as needed
-import { title } from "@/components/primitives";
 
 export default function InfoPage() {
   const [user, setUser] = useState(null);
@@ -19,6 +18,7 @@ export default function InfoPage() {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
+        // setUser(user);
         const userRef = doc(firestore, "users", user.uid);
         const userDoc = await getDoc(userRef);
         if (userDoc.exists()) {
@@ -37,65 +37,48 @@ export default function InfoPage() {
       }
       setLoading(false);
     });
-  
+
     return () => unsubscribe();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="flex items-center justify-center min-h-screen">
+      <div className="text-2xl font-semibold text-gray-700">Loading...</div>
+    </div>;
   }
 
   if (auth.currentUser) {
     return (
-      <div>
-        <h2>Your Shelf</h2>
-        {/* <h3></h3> */}
-        <table>
-          <thead>
-          <tr>
-          <th>Word</th>
-          <th>Definition</th>
-          </tr>
-          </thead>
-        <tbody>
-          {words.map((item, index) => (
-          <tr key={index}>
-          <td>{item.word}</td>
-          <td>{item.definition}</td>
-          </tr>
-        ))}
-  </tbody>
-</table>
+      <div className="container mx-auto p-3">
+        <h2 className="text-4xl font-bold text-center text-slate-600 mb-8">Your Shelf</h2>
+        <div className="overflow-y-auto max-h-120">
+          <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+            <thead className="bg-pink-200 text-slate">
+              <tr>
+                <th className="w-1/2 py-3 px-4 uppercase font-semibold text-sm">Word</th>
+                <th className="w-1/2 py-3 px-4 uppercase font-semibold text-sm">Definition</th>
+              </tr>
+            </thead>
+            <tbody className="text-slate-700">
+              {words.map((item, index) => (
+                <tr key={index} className="bg-gray-100 border-b border-gray-200">
+                  <td className="w-1/2 py-3 px-4">{item.word}</td>
+                  <td className="w-1/2 py-3 px-4">{item.definition}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <p className="text-2xl font-semibold text-gray-700 mb-4">Sign in to view your shelf</p>
+          <p className="text-lg text-gray-600">or create an account to start saving your words!</p>
+        </div>
       </div>
     );
   }
-  else {
-    return (
-      <div>
-        <p>Sign in to view your shelf or create an account to start saving your words!</p>
-      </div>
-    )
-  }
-
-  // return (
-    // <div>
-    //   <h1 className={title()}>My Shelf</h1>
-    //   {user ? (
-    //     <div>
-    //       <h2>Welcome</h2>
-    //       <h3>Your Words:</h3>
-    //       <ul>
-    //         {words.map((word, index) => (
-    //           <li key={index}>{word}</li>
-    //         ))}
-    //       </ul>
-    //     </div>
-        
-    //   ) : (
-    //     <div>
-    //       <p>Please sign in to view your shelf.</p>
-    //     </div>
-    //   )}
-    // </div>
-  // );
 }
