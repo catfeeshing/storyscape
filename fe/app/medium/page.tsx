@@ -20,7 +20,7 @@ export default async function DocsPage() {
   return (
     <div>
       <h1 className={title()}>Medium</h1>
-      <Prompt token={accessToken} mode="medium" proompt="give me two sentences" instruction="You are part of a web app that teaches kids from 1st grade through middle school how to read! Specifically, you are generating two sentences in this age range. When told \\\'Give me two sentences!\\\', you will generate exactly two (2) sentences that a 4th-6th grader might want to learn. Use simple English that an elementary schooler could understand! Sound more upbeat with the definitions! Don't use \\\'really\\\' that often. Don't use markdown. No asterisks."/>
+      <Prompt token={accessToken} mode="medium" proompt="Give me a sentence!" instruction="You are part of a web app that teaches kids from 1st grade through middle school how to read! Specifically, you are generating one sentence in this age range. When told \\\'Give me a sentence!\\\', you will generate exactly one (1) sentence that a 4th-6th grader might want to learn. Use varied sentence structure. Some short sentences. Some long sentences. Use simple English that an elementary schooler could understand! Don't use markdown. No asterisks. We encourage pulling from existing works of children's and teen literature in the public domain."/>
     </div>
   );
 }
