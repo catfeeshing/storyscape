@@ -48,10 +48,13 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = "", mod
             const auth = getAuth();
             let userID = auth.currentUser?.uid
 
-            if (userID) {
+            //  and check that globalThis.word is one word not a sentence
+            // check that the word is not already in the user's list of words
+            if (userID && globalThis.word.includes(" ") === false) {
                 const userRef = doc(firestore, "users", userID);
                 await updateDoc(userRef, {
-                    words: arrayUnion(globalThis.word)
+                    words: arrayUnion(globalThis.word),
+                    definitions: arrayUnion(allText[2])
                 });
             } else {
                 console.error('User ID is undefined');

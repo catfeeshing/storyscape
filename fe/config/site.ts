@@ -10,7 +10,7 @@ export const siteConfig = {
     },
     {
       label: "My Shelf",
-      href: "/review",
+      href: "/shelf",
     },
 
   ],
@@ -25,7 +25,7 @@ export const siteConfig = {
     },
     {
       label: "My Shelf",
-      href: "/review",
+      href: "/shelf",
     },
 
   ],

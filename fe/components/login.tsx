@@ -32,6 +32,7 @@ export default function Auth({ red }: { red: string }) {
                 username: result.user.displayName,
                 email: result.user.email,
                 words: [],
+                definitions: [],
                 sentences: [],
                 paragraphs: [],
                 profile_picture: result.user.photoURL,

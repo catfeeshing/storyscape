@@ -7,7 +7,12 @@ import { title } from "@/components/primitives";
 
 export default function InfoPage() {
   const [user, setUser] = useState(null);
-  const [words, setWords] = useState([]);
+  interface Word {
+    word: string;
+    definition: string;
+  }
+
+  const [words, setWords] = useState<Word[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,7 +22,14 @@ export default function InfoPage() {
         const userRef = doc(firestore, "users", user.uid);
         const userDoc = await getDoc(userRef);
         if (userDoc.exists()) {
-          setWords(userDoc.data().words || []);
+          const words = userDoc.data().words || [];
+          const definitions = userDoc.data().definitions || [];
+          // Combine words and definitions into an array of objects
+          const wordsWithDefinitions = words.map((word: any, index: number) => ({
+            word,
+            definition: definitions[index] || ""
+          }));
+          setWords(wordsWithDefinitions);
         }
       } else {
         setUser(null);
@@ -25,7 +37,7 @@ export default function InfoPage() {
       }
       setLoading(false);
     });
-
+  
     return () => unsubscribe();
   }, []);
 
@@ -36,20 +48,31 @@ export default function InfoPage() {
   if (auth.currentUser) {
     return (
       <div>
-        <h2>Welcome</h2>
-        <h3>Your Words:</h3>
-        <ul>
-          {words.map((word, index) => (
-            <li key={index}>{word}</li>
-          ))}
-        </ul>
+        <h2>Your Shelf</h2>
+        {/* <h3></h3> */}
+        <table>
+          <thead>
+          <tr>
+          <th>Word</th>
+          <th>Definition</th>
+          </tr>
+          </thead>
+        <tbody>
+          {words.map((item, index) => (
+          <tr key={index}>
+          <td>{item.word}</td>
+          <td>{item.definition}</td>
+          </tr>
+        ))}
+  </tbody>
+</table>
       </div>
     );
   }
   else {
     return (
       <div>
-        <p>Please sign in to view your shelf.</p>
+        <p>Sign in to view your shelf or create an account to start saving your words!</p>
       </div>
     )
   }
