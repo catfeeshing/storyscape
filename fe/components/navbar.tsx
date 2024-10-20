@@ -41,12 +41,12 @@ export const Navbar = () => {
   );
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
+    <NextUINavbar isBlurred className="bg-slate-500/2 text-slate-700 " maxWidth="full" position="sticky">
+      <NavbarContent className=" basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo className="hidden" />
-            <p className="font-bold text-inherit">STORYSCAPE</p>
+            <p className="font-bold text-inherit text-2xl">STORYSCAPE</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -55,7 +55,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "text-slate-700 data-[active=true]:font-medium",
                 )}
                 color="foreground"
                 href={item.href}
@@ -72,7 +72,7 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">
           {searchInput}
@@ -83,7 +83,7 @@ export const Navbar = () => {
         <Link isExternal aria-label="profile picture" href={"/"}>
           <GithubIcon className="hidden text-default-500" />
         </Link>
-        <ThemeSwitch />
+        {/* <ThemeSwitch /> */}
         <NavbarMenuToggle />
       </NavbarContent>
         

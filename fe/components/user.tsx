@@ -6,15 +6,15 @@ const Userdropdown = (data: any) => {
   return (
     <div>
       <Dropdown placement="bottom-end" backdrop="blur">
-        <DropdownTrigger>
+        <DropdownTrigger className=" rounded-3xl p-2">
           <User
             as="button"
             avatarProps={{
               isBordered: true,
               src: data.img,
             }}
-            className="transition-transform"
-            description={data.email}
+            className="transition-transform text-slate-600 font-bold text-xl"
+            // description={data.email}
             name={data.name}
           />
         </DropdownTrigger>
