@@ -18,7 +18,7 @@ export default function Controls({colors}:{colors:String[]}) {
   }
   console.log(colors)
   return (
-    <Button className={`font-sans font-extrabold bg-gradient-to-tr from-${colors[0]} to-${colors[1]} text-white shadow-lg`}
+    <Button className={`font-sans font-extrabold bg-gradient-to-tr ${colors[0]} ${colors[1]} text-white shadow-lg`}
       onPress={() => {
         connect()
           .then(() => {

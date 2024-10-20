@@ -6,9 +6,10 @@ interface cardProps {
     name: string
     src: string
     link:string
+    description:string
 }
 
-const LevelCard: React.FC<cardProps> = ({name, src, link}) => {
+const LevelCard: React.FC<cardProps> = ({name, src, link,description}) => {
   return (
     <div>
         
@@ -17,7 +18,7 @@ const LevelCard: React.FC<cardProps> = ({name, src, link}) => {
                 radius="lg"
                 isHoverable
                 isPressable
-                className="border-none hover:translate-y-[-5px] h-[200px] w-[300px]"
+                className="border-none hover:translate-y-[-5px] h-[270px] w-[300px] pb-3"
                 >
                 <a href={link}>
                     <Image
@@ -27,8 +28,9 @@ const LevelCard: React.FC<cardProps> = ({name, src, link}) => {
                         src={src}
                         width={300}
                     />
-                    <CardFooter className="justify-center">
+                    <CardFooter className="flex flex-col flex-start">
                         <p className="text-2xl font-extrabold ">{name}</p>
+                        <p className="text-xl font-medium ">{description}</p>
                     </CardFooter>
                 </a>
             </Card>
