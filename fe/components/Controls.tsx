@@ -2,7 +2,7 @@
 "use client";
 import { useVoice, VoiceReadyState } from "@humeai/voice-react";
 import {Button} from "@nextui-org/react";
-export default function Controls() {
+export default function Controls({colors}:{colors:String[]}) {
   const { connect, disconnect, readyState } = useVoice();
 
   if (readyState === VoiceReadyState.OPEN) {
@@ -16,9 +16,9 @@ export default function Controls() {
       </Button>
     );
   }
-
+  console.log(colors)
   return (
-    <Button className="font-sans font-extrabold bg-gradient-to-tr from-pink-600 to-red-300 text-white shadow-lg"
+    <Button className={`font-sans font-extrabold bg-gradient-to-tr from-${colors[0]} to-${colors[1]} text-white shadow-lg`}
       onPress={() => {
         connect()
           .then(() => {

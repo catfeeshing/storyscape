@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useVoice,  VoiceReadyState } from "@humeai/voice-react";
 
-export default function Messages() {
+export default function Messages({colors}:{colors:String[]}) {
   const [aitext, setAIText] = useState("");
   const { messages, connect, disconnect, readyState } = useVoice();
   let x = 0
@@ -49,7 +49,7 @@ export default function Messages() {
         <div key={msg.type + index}>
           <div className="w-3 overflow-hidden">
           </div>
-          <div className="bg-gradient-to-tr from-pink-500 to-red-300 border-solid border-1 border-red-400 p-4 my-6 rounded-3xl flex-1 font-sans font-semibold text-white text-2xl">
+          <div className={`bg-gradient-to-tr from-${colors[0]} to-${colors[1]} border-solid p-4 my-6 rounded-3xl flex-1 font-sans font-semibold text-white text-2xl`}>
             {msg.message.content}
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function Messages() {
     }
     else{
       return(
-        <div className="h-[60px] w-full bg-gradient-to-tr from-pink-500 to-red-300 border-solid border-1 border-red-400 p-4 my-6 rounded-3xl flex-1 font-sans font-semibold text-white text-2xl">
+        <div className={`h-[60px] w-full bg-gradient-to-tr from-${colors[0]} to-${colors[1]} p-4 my-6 rounded-3xl flex-1 font-sans font-semibold text-white text-2xl`}>
             <i className=" font-light">listening</i>
         </div>
       )
