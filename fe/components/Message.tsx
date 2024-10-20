@@ -44,15 +44,24 @@ export default function Messages() {
       if (msg.message.content && (msg.message.content.includes("Good job") || msg.message.content.includes("good job"))) {
         endcall();
       }
+      if(msg.type === "assistant_message"){
       return (
         <div key={msg.type + index}>
           <div className="w-3 overflow-hidden">
           </div>
-          <div className="bg-red-200 border-solid border-2 border-red-400 p-4 my-6 rounded-3xl flex-1">
+          <div className="bg-gradient-to-tr from-pink-500 to-red-300 border-solid border-1 border-red-400 p-4 my-6 rounded-3xl flex-1 font-sans font-semibold text-white text-2xl">
             {msg.message.content}
           </div>
         </div>
       );
+    }
+    else{
+      return(
+        <div className="h-[60px] w-full bg-gradient-to-tr from-pink-500 to-red-300 border-solid border-1 border-red-400 p-4 my-6 rounded-3xl flex-1 font-sans font-semibold text-white text-2xl">
+            <i className=" font-light">listening</i>
+        </div>
+      )
+    }
     }})}
     
 </div>

@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        kalam: ["var(--font-kalam)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
