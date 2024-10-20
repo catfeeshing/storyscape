@@ -17,6 +17,7 @@ export default async function DocsPage() {
     throw new Error();
 
   }
+
   return (
 
     <div className="flex transition-all ease-in-out">
