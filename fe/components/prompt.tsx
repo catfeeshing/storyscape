@@ -2,7 +2,7 @@
 import { useState ,useEffect } from 'react';
 import gemini from '@/components/gemini'
 import ClientComponent from './ClientComponent';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, doc, updateDoc, arrayUnion, addDoc } from "firebase/firestore";
 import { firestore } from '@/firebase/firebase'
 
 
