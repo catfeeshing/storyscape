@@ -35,6 +35,8 @@ export default function Auth({ red }: { red: string }) {
                 definitions: [],
                 sentences: [],
                 paragraphs: [],
+                // NEW theme (exclusive feature for logged in users)
+                theme: "",
                 profile_picture: result.user.photoURL,
             });
         }

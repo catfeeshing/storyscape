@@ -18,7 +18,17 @@ export default function Home() {
       <div className="absolute inset-20 w-1/2 h-300 bg-gradient-to-r from-slate-200 to-white-200 opacity-70 p-40 rounded-3xl">
       <h1 className="text-6xl font-bold text-slate z+5">welcome to storyscape!</h1>
       <br></br>
-      <button className="bg-slate-500 text-white p-4 rounded-lg"><a href="/levels">begin your adventure</a></button>
+      <p className="text-2xl font-medium text-slate z+5">exploring your words and your world through text. <br></br> learn the english you want, however you want!</p>
+      <br></br>
+      <button className="bg-slate-500 text-white p-4 rounded-lg z+5"><a href="/levels">begin your adventure</a></button>
+      <br></br>
+      <br></br>
+      <p><b>featuring:</b></p>
+      <ul>
+        <li> - three different levels of difficulty </li>
+        <li> - personal glossary to track your adventures </li>
+        <li> - customize your text adventures </li>
+      </ul>
     </div>
 
     {/* hero image */}
