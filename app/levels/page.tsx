@@ -46,7 +46,7 @@ export default function BlogPage() {
             <div className=" inset-0 justify-center align-middle items-center" >
               <Image
               alt="NextUI hero Image"
-              src="https://media.discordapp.net/attachments/1296711558868762687/1297522562439450675/IMG_8107.png?ex=67163b8d&is=6714ea0d&hm=356f80633ec08abf3005e059c23ca809ce90d37629fa860e4a57e871718eb809&=&format=webp&quality=lossless&width=645&height=928"
+              src="https://media.discordapp.net/attachments/1296711558868762687/1297522562439450675/IMG_8107.png?ex=671835cd&is=6716e44d&hm=0bdb64d4ca6e869e151cf417940702c8247bd4eada9e92b66181a6adf8964390&=&format=webp&quality=lossless&width=645&height=928"
               width={360}
               className="origin-bottom-right  transform rotate-[16] w-[500px]" 
             />
