@@ -57,7 +57,7 @@ const Prompt:React.FC<Props> = ({proompt = "", instruction = "", token = "", mod
                     definitions: arrayUnion(allText[2])
                 });
             } else {
-                console.error('User ID is undefined');
+                console.error('User ID not valid OR already there');
             }
 
             globalThis.paragraph = String(result).split("\n")[2]

@@ -1,7 +1,14 @@
+// import { useState } from "react";
 import { title } from "@/components/primitives";
 import Prompt from '@/components/prompt'
 import { fetchAccessToken } from "hume";
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { doc, getDoc } from "firebase/firestore";
+// import { auth, firestore } from "@/firebase/firebase"; // Adjust the import path as needed
 
+// declare global { 
+//   var theme: string;
+// }
 
 export default async function AboutPage() {
   const accessToken = await fetchAccessToken({
@@ -12,11 +19,55 @@ export default async function AboutPage() {
 
     
   });
+
+  // const auth = getAuth();
+  // let userId = auth.currentUser?.uid;
+  // const getUserTheme = async (userId: string): Promise<string | null> => {
+  //   try {
+  //     const userDocRef = doc(firestore, "users", userId);  // Reference to the user's document
+  //     const userDocSnap = await getDoc(userDocRef); // Fetch the document snapshot
+  
+  //     if (userDocSnap.exists()) {
+  //       const userData = userDocSnap.data();
+  //       console.log(userDocSnap.data().theme)
+  //       globalThis.theme = userDocSnap.data().theme;
+
+
+  //       return userData.theme || null;  // Return the theme if it exists
+  //     } else {
+  //       console.log("No such document!");
+  //       return null;
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching user theme:", error);
+  //     return null;
+  //   }
+  // };
+
+
   if (!accessToken) {
 
     throw new Error();
 
   }
+  
+    // let theme = "";
+
+    // if (userId) {
+    //   getUserTheme(userId).then((theme) => {
+    //     if (theme) {
+    //       console.log("User theme:", theme);
+    //     }
+    //     else {
+    //       console.log("User theme not found");
+    //     }
+    //   }
+    //   );
+
+    // console.log("User theme:", globalThis.theme);
+
+
+  
 
   return (
 
