@@ -12,11 +12,11 @@
 
 ## About
 <img src="https://github.com/user-attachments/assets/db9ed1ee-e8d6-4199-ad74-6ae8f124766b" 
-        alt="Logo" width="33%" height="30%">
+        alt="Logo" width="32%" height="30%">
 <img src="https://github.com/user-attachments/assets/8071f4dc-9893-4704-8693-c9244e73bc59" 
-        alt="Logo" width="33%" height="30%">
+        alt="Logo" width="32%" height="30%">
 <img src="https://github.com/user-attachments/assets/ceb41778-71eb-4313-9b2c-f1d39320a880" 
-        alt="Logo" width="33%" height="30%">
+        alt="Logo" width="32%" height="30%">
 
 Storyscape is an application aimed at developing elementary and middle schoolers' grasp over the English language. Turn on your mic and get ready to read some words! 
 
